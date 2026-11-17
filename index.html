@@ -4,192 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#100e25">
-  <title>Hello, Adventurer</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --ink: #f8f0ff;
-      --lavender: #d9c8ff;
-      --gold: #f5d48d;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      min-height: 100vh;
-      margin: 0;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(ellipse at 50% 80%, #453267 0%, transparent 38%),
-        radial-gradient(ellipse at 18% 18%, #302551 0%, transparent 34%),
-        linear-gradient(155deg, #111127 0%, #17122f 48%, #090d20 100%);
-    }
-
-    .sky, .sky::before, .sky::after {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .sky {
-      opacity: .8;
-      background-image:
-        radial-gradient(1px 1px at 12% 23%, #fff 99%, transparent),
-        radial-gradient(1.5px 1.5px at 76% 16%, #ffe9bd 99%, transparent),
-        radial-gradient(1px 1px at 87% 63%, #fff 99%, transparent),
-        radial-gradient(1px 1px at 34% 11%, #d9c8ff 99%, transparent),
-        radial-gradient(1.5px 1.5px at 62% 38%, #fff 99%, transparent),
-        radial-gradient(1px 1px at 22% 72%, #ffe9bd 99%, transparent),
-        radial-gradient(1px 1px at 93% 31%, #d9c8ff 99%, transparent),
-        radial-gradient(1px 1px at 48% 82%, #fff 99%, transparent),
-        radial-gradient(1px 1px at 8% 49%, #d9c8ff 99%, transparent),
-        radial-gradient(1px 1px at 70% 91%, #ffe9bd 99%, transparent);
-      animation: shimmer 5s ease-in-out infinite alternate;
-    }
-
-    .sky::before {
-      content: "";
-      background: radial-gradient(circle at 78% 26%, rgba(255, 232, 184, .19), transparent 2px);
-      filter: blur(22px);
-    }
-
-    .moon {
-      position: fixed;
-      width: clamp(110px, 19vw, 220px);
-      aspect-ratio: 1;
-      top: 10%;
-      right: 13%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 34% 32%, #fff8dc, #f4dba6 54%, #d99f87 100%);
-      box-shadow: 0 0 35px #f5d48d55, 0 0 110px #d7adf044, 0 0 180px #b68cff22;
-      opacity: .9;
-    }
-
-    .moon::after {
-      content: "";
-      position: absolute;
-      inset: 11%;
-      border-radius: inherit;
-      background: radial-gradient(ellipse at 68% 42%, #d4b88e55 0 5%, transparent 6%),
-                  radial-gradient(ellipse at 42% 67%, #d4b88e44 0 8%, transparent 9%);
-      filter: blur(2px);
-    }
-
-    .horizon {
-      position: fixed;
-      inset: auto 0 0;
-      height: 30vh;
-      background: linear-gradient(transparent, #0b1020 58%);
-    }
-
-    .mountain {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 25vh;
-      background: #11152a;
-      clip-path: polygon(0 56%, 12% 24%, 23% 54%, 38% 12%, 54% 58%, 69% 25%, 83% 60%, 94% 32%, 100% 52%, 100% 100%, 0 100%);
-      opacity: .8;
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      width: min(720px, calc(100% - 36px));
-      padding: clamp(42px, 8vw, 76px) 28px;
-      text-align: center;
-      border: 1px solid #f5d48d44;
-      border-radius: 3px;
-      background: linear-gradient(145deg, #ffffff0d, #ffffff03 58%, #d9c8ff0b);
-      box-shadow: 0 24px 90px #05061188, inset 0 0 50px #d9c8ff08;
-      backdrop-filter: blur(8px);
-    }
-
-    main::before, main::after {
-      content: "✧";
-      position: absolute;
-      color: var(--gold);
-      font-size: 20px;
-      text-shadow: 0 0 18px #f5d48d;
-    }
-    main::before { top: 18px; left: 20px; }
-    main::after { right: 20px; bottom: 18px; }
-
-    .eyebrow {
-      margin: 0 0 20px;
-      color: var(--gold);
-      font-family: system-ui, sans-serif;
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .32em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(3.3rem, 11vw, 7rem);
-      font-weight: 400;
-      line-height: .98;
-      letter-spacing: -.045em;
-      text-shadow: 0 0 35px #d9c8ff44;
-    }
-
-    h1 span {
-      display: block;
-      color: var(--lavender);
-      font-style: italic;
-    }
-
-    .rule {
-      width: 120px;
-      height: 1px;
-      margin: 30px auto 23px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .message {
-      margin: 0;
-      color: #d9d2e8;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      line-height: 1.8;
-    }
-
-    .sigil {
-      display: inline-grid;
-      width: 42px;
-      height: 42px;
-      margin-top: 29px;
-      place-items: center;
-      border: 1px solid #d9c8ff66;
-      border-radius: 50%;
-      color: var(--gold);
-      font-size: 20px;
-      box-shadow: 0 0 22px #d9c8ff1c;
-    }
-
-    @keyframes shimmer { from { opacity: .55; } to { opacity: 1; } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
-    @media (max-width: 520px) {
-      .moon { top: 8%; right: -7%; opacity: .65; }
-      main { padding-inline: 22px; }
-    }
-  </style>
+  <title>Home · The Starlit Realm</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="sky" aria-hidden="true"></div>
-  <div class="moon" aria-hidden="true"></div>
-  <div class="horizon" aria-hidden="true"></div>
-  <div class="mountain" aria-hidden="true"></div>
-  <main>
+  <div class="sky" aria-hidden="true"></div><div class="moon" aria-hidden="true"></div>
+  <div class="horizon" aria-hidden="true"></div><div class="mountain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">✦</span> The Starlit Realm</a>
+    <nav aria-label="Main navigation">
+      <a class="active" aria-current="page" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main class="card home-card">
     <p class="eyebrow">A little magic awaits</p>
     <h1>Hello,<span>world.</span></h1>
     <div class="rule" aria-hidden="true"></div>
     <p class="message">The stars have aligned.<br>Let your next great adventure begin.</p>
-    <span class="sigil" aria-hidden="true">✦</span>
+    <a class="sigil" href="about.html" aria-label="Discover our story">✦</a>
+    <p class="hint">Discover the story <span aria-hidden="true">↓</span></p>
   </main>
+  <footer>Made beneath a sky full of possibility</footer>
 </body>
 </html>

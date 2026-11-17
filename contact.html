@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100e25">
+  <title>Contact · The Starlit Realm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div><div class="moon" aria-hidden="true"></div>
+  <div class="horizon" aria-hidden="true"></div><div class="mountain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">✦</span> The Starlit Realm</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a class="active" aria-current="page" href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main class="card content-card contact-card">
+    <p class="eyebrow">A raven is standing by</p>
+    <h1 class="page-title">Send a <span>message</span></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="message">Questions, kind words, or tales from your travels—we'd love to hear from you.</p>
+    <form action="mailto:hello@starlitrealm.example" method="post" enctype="text/plain">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" placeholder="What shall we call you?" required>
+      <label for="email">Your email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      <label for="message">Your message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Write your note here…" required></textarea>
+      <button type="submit">Send your note <span aria-hidden="true">✧</span></button>
+    </form>
+    <p class="form-note">This opens your email app to send the message.</p>
+  </main>
+  <footer>Made beneath a sky full of possibility</footer>
+</body>
+</html>
